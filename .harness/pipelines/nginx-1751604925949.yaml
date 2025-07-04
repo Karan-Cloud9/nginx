@@ -1,6 +1,6 @@
 pipeline:
   identifier: Build_Karan_Cloud9_nginx_1751604932417
-  name: Build nginx
+  name: Karan-Build-nginx-bootcamp
   orgIdentifier: default
   projectIdentifier: default_project
   properties:
@@ -23,24 +23,15 @@ pipeline:
                   identifier: echo
                   name: echo
                   spec:
-                    command: echo hello world
+                    shell: Sh
+                    command: pwd
                   timeout: ""
                   type: Run
-              - step:
-                  identifier: dockerbuild
-                  name: docker_build
-                  spec:
-                    caching: true
-                    connectorRef: <+input>
-                    repo: hello/world
-                    tags:
-                      - latest
-                  timeout: ""
-                  type: BuildAndPushDockerRegistry
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
+  tags: {}
